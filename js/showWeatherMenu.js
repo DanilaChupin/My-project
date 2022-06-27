@@ -7,6 +7,6 @@ const menuWeather = document.querySelector('.container-weather')
 menuWeather.classList.toggle('showMenu')
 }
 
-btnWeather.addEventListener('click', showWeatherMenu)
-closeMenu.addEventListener('click', showWeatherMenu)
+/*btnWeather.addEventListener('click', showWeatherMenu)
+closeMenu.addEventListener('click', showWeatherMenu)*/
 

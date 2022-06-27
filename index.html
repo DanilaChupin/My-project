@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/table.css">
     <link rel="stylesheet" href="./styles/scrollStyle.css">
-    <link rel="stylesheet" href="./styles/hederStyle.css">
     <link rel="stylesheet" href="./styles/dragNdropStyle.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/createTablePopUp.css">
+    <link rel="stylesheet" href="./styles/vidget.css">
 </head>
 
 <body>
@@ -27,27 +28,13 @@
             <span class="header__logo-text header__logo-text_white">list</span>
         </div>
         </a>
-        <nav class="header__menu">
-            <ul class="header__menu-list">
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link" id="createBtn">Добавить новый список задач</a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link" id="btn-weather">Актуальная погода</a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link" id="">Актуальный курс</a>
-                </li>
-                <li class="header__menu-item">
-                    <a href="#" class="header__menu-link" id="">Мировое время</a>
-                </li>
-            </ul>
-        </nav>
         <input type="text" placeholder="Поиск..." class="header__searchbar">
         <div class="header__profile"></div>
     </header>
     <main>
         <div class="container-main">
+            <div class="container-main-wr"></div>
+            <button class="addTableBtn">Добавить таблицу</button>
             <div class="container-button">
                 <button id="post">
                     Добавить
@@ -69,6 +56,7 @@
     <script src="./js/table.js"></script>
     <script src="./js/validForm.js"></script>
     <script src="./js/weatherAPI.js"></script>
+    <script src="./js/vidget.js"></script>
 </body>
 
 </html>

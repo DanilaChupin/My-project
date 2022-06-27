@@ -32,5 +32,5 @@ const renderWeatherApp = async () => {
 };
 
 const searchBtn = document.querySelector('#get-info');
-searchBtn.addEventListener('click', renderWeatherApp);
+/*searchBtn.addEventListener('click', renderWeatherApp);*/
 

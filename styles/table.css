@@ -1,6 +1,6 @@
 .table {
   min-width: 380px;
-  margin: 10px;
+  margin-right: 20px;
   border: 1px solid gray;
   border-radius: 5px;
   overflow: hidden;
@@ -26,8 +26,9 @@
 
 .table__headline {
   font-size: 20px;
-  color: black;
+  color: white;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .table__input-wr {
@@ -70,6 +71,8 @@
   margin: 0px 20px;
   padding: 0;
   list-style: none;
+  /*max-height: 20vh;
+  overflow-y: scroll;*/
 }
 
 .table__task {
@@ -115,7 +118,6 @@
 .table__delete-table-btn:hover {
   background-color: white;
   color: gray;
-
   cursor: pointer;
   border: none;
   transition: color .5s ease-in-out;
