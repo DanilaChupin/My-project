@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./styles/hederStyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./styles/weatherStyle.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/table.css">
+    <link rel="stylesheet" href="./styles/scrollStyle.css">
+    <link rel="stylesheet" href="./styles/hederStyle.css">
+    <link rel="stylesheet" href="./styles/dragNdropStyle.css">
+    <link rel="stylesheet" href="./styles/header.css">
+</head>
+
+<body>
+    <header class="header">
+        <!--<a href="./velcom.html" class="header__logo-link" target="_blank">-->
+            <div class="header__logo">
+                <div class="header__logo-block">
+                    <span class="header__logo-text header__logo-text_black">ToDo</span>
+                </div>
+                <span class="header__logo-text header__logo-text_white">list</span>
+            </div>
+       <!-- </a>-->
+        <nav class="header__menu">
+            <ul class="header__menu-list">
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" id="createBtn">Добавить новый список задач</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" id="btn-weather">Актуальная погода</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" id="">Актуальный курс</a>
+                </li>
+                <li class="header__menu-item">
+                    <a href="#" class="header__menu-link" id="">Мировое время</a>
+                </li>
+            </ul>
+        </nav>
+        <input type="text" placeholder="Поиск..." class="header__searchbar">
+        <div class="header__profile"></div>
+    </header>
+    <div class="container-weather">
+        <div class="wrapper-container">
+            <span class="close-menu">X</span>
+            <h1>Погода в вашей стране</h1>
+            <div class="col s12 m7">
+                <div class="card horizontal">
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <p>Температура: <span id="current-temp"> 12 </span> градусов</p>
+                            <p>Погода: <span id="weather"> Солнечно </span></p>
+                        </div>
+                        <div class="card-action">
+                            <input id="place" placeholder="Введите название города">
+                            <a id="get-info">Поиск</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+        <!--<div class="wrapper" draggable="true">
+                <div class="header">
+                    <span class="deletBtn">X</span>
+                    <h1 class="h1">Текущие задачи1</h1>
+                    <input type="text" placeholder="Введите новое дело..." class="toDoEl">
+                    <span class="addBtn">Добавить</span>
+                </div>
+                <ul class="list">
+                </ul>
+            </div> -->
+        <div class="container-main">
+
+
+            <div class="container-button">
+                <button id="post">
+                    Добавить
+                </button>
+                <button id="delete">
+                    Удалить
+                </button>
+                <button id="get">
+                    Получить
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="dragn">
+    </footer>
+
+    </div>
+
+
+
+    <script src="./js/createTable.js"></script>
+    <script src="./js/createTask.js"></script>
+    <script src="./js/dragAndDrop.js"></script>
+    <script src="./js/renameTable.js"></script>
+    <script src="./js/deleteTable.js"></script>
+    <script src="./js/showWeatherMenu.js"></script>
+    <script src="./js/weatherAPI.js"></script>
+    <script src="./js/addElemToServer.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.hide{
+    display: none;
+}
+.hovered{
+    background-color: #d1d8e2;
+}
+.dragnDrop{
+    height: 50px;
+    max-width: 370px;
+}

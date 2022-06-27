@@ -1,0 +1,72 @@
+.table {
+  min-width: 380px;
+  margin: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+  height: fit-content;
+}
+.table__header {
+  position: relative;
+  background-color: rgba(95, 95, 95, 0.7);
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+  border: none;
+  width: 100%;
+}
+.table__header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.table__headline {
+  font-size: 20px;
+  color: black;
+}
+.table__input-wr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
+.table__input {
+  border: none;
+  width: 60%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+.table__add-btn {
+  padding: 10px;
+  width: 30%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.table__add-btn:hover {
+  background-color: #bbb;
+}
+.table__list {
+  margin: 0px 20px;
+  padding: 0;
+  list-style: none;
+}
+.table__delete-btn {
+  position: absolute;
+  text-align: center;
+  right: 10px;
+  top: 5px;
+  width: 30px;
+}
+.table__delete-btn:hover {
+  background-color: #e74c3c;
+  color: white;
+}
