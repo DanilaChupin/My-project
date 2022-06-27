@@ -14,18 +14,19 @@
     <link rel="stylesheet" href="./styles/hederStyle.css">
     <link rel="stylesheet" href="./styles/dragNdropStyle.css">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
     <header class="header">
-        <!--<a href="./velcom.html" class="header__logo-link" target="_blank">-->
-            <div class="header__logo">
-                <div class="header__logo-block">
-                    <span class="header__logo-text header__logo-text_black">ToDo</span>
-                </div>
-                <span class="header__logo-text header__logo-text_white">list</span>
+        <a href="./velcom.html" class="header__logo-link" target="_blank">
+        <div class="header__logo">
+            <div class="header__logo-block">
+                <span class="header__logo-text header__logo-text_black">ToDo</span>
             </div>
-       <!-- </a>-->
+            <span class="header__logo-text header__logo-text_white">list</span>
+        </div>
+        </a>
         <nav class="header__menu">
             <ul class="header__menu-list">
                 <li class="header__menu-item">
@@ -45,40 +46,8 @@
         <input type="text" placeholder="Поиск..." class="header__searchbar">
         <div class="header__profile"></div>
     </header>
-    <div class="container-weather">
-        <div class="wrapper-container">
-            <span class="close-menu">X</span>
-            <h1>Погода в вашей стране</h1>
-            <div class="col s12 m7">
-                <div class="card horizontal">
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>Температура: <span id="current-temp"> 12 </span> градусов</p>
-                            <p>Погода: <span id="weather"> Солнечно </span></p>
-                        </div>
-                        <div class="card-action">
-                            <input id="place" placeholder="Введите название города">
-                            <a id="get-info">Поиск</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <main>
-        <!--<div class="wrapper" draggable="true">
-                <div class="header">
-                    <span class="deletBtn">X</span>
-                    <h1 class="h1">Текущие задачи1</h1>
-                    <input type="text" placeholder="Введите новое дело..." class="toDoEl">
-                    <span class="addBtn">Добавить</span>
-                </div>
-                <ul class="list">
-                </ul>
-            </div> -->
         <div class="container-main">
-
-
             <div class="container-button">
                 <button id="post">
                     Добавить
@@ -92,22 +61,14 @@
             </div>
         </div>
     </main>
-    <footer class="dragn">
-    </footer>
-
     </div>
-
-
-
-    <script src="./js/createTable.js"></script>
-    <script src="./js/createTask.js"></script>
-    <script src="./js/dragAndDrop.js"></script>
-    <script src="./js/renameTable.js"></script>
-    <script src="./js/deleteTable.js"></script>
-    <script src="./js/showWeatherMenu.js"></script>
-    <script src="./js/weatherAPI.js"></script>
     <script src="./js/addElemToServer.js"></script>
-
+    <script src="./js/dragAndDrop.js"></script>
+    <script src="./js/registration.js"></script>
+    <script src="./js/showWeatherMenu.js"></script>
+    <script src="./js/table.js"></script>
+    <script src="./js/validForm.js"></script>
+    <script src="./js/weatherAPI.js"></script>
 </body>
 
 </html>

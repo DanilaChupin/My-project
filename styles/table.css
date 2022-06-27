@@ -7,6 +7,7 @@
   background-color: white;
   height: fit-content;
 }
+
 .table__header {
   position: relative;
   background-color: rgba(95, 95, 95, 0.7);
@@ -16,57 +17,106 @@
   border: none;
   width: 100%;
 }
+
 .table__header:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .table__headline {
   font-size: 20px;
   color: black;
+  margin-bottom: 20px;
 }
+
 .table__input-wr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  
+
 }
+
 .table__input {
   border: none;
-  width: 60%;
-  padding: 10px;
-  float: left;
+  padding: 5px;
   font-size: 16px;
+  border-radius: 10px;
+  margin-right: 10px;
+  outline: none;
 }
-.table__add-btn {
+
+.table__add-task-btn {
   padding: 10px;
-  width: 30%;
-  background: #d9d9d9;
-  color: #555;
-  float: left;
   text-align: center;
   font-size: 16px;
-  cursor: pointer;
   transition: 0.3s;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 700;
 }
-.table__add-btn:hover {
-  background-color: #bbb;
+
+.table__add-task-btn:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 5px;
 }
+
+
 .table__list {
   margin: 0px 20px;
   padding: 0;
   list-style: none;
 }
-.table__delete-btn {
-  position: absolute;
-  text-align: center;
-  right: 10px;
-  top: 5px;
-  width: 30px;
+
+.table__task {
+  height: 30px;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-.table__delete-btn:hover {
+
+.table__task-delete-btn {
+  height: 20px;
+  width: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.table__task-delete-btn:hover {
+  cursor: pointer;
   background-color: #e74c3c;
   color: white;
+}
+
+.table__delete-table-btn {
+  position: absolute;
+  text-align: center;
+  right: 5px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-weight: 700;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.table__delete-table-btn:hover {
+  background-color: white;
+  color: gray;
+
+  cursor: pointer;
+  border: none;
+  transition: color .5s ease-in-out;
 }
