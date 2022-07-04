@@ -1,13 +1,21 @@
-function createTable(tableName) {
+
+
+let dataSetTaskId = 1;
+let dataSetListId = 1;
+let dataDelitId = 1;
+
+const createTable = (tableName, id) => {
+  if (!id) return
+  
+  let dataSetTableId = id;
+  console.log(dataSetTableId);
+ 
   const container = document.querySelector(".container-main-wr");
 
   const table = document.createElement("div");
   table.className = "table";
   table.setAttribute("draggable", "true");
-  // table.addEventListener("dragover", dragOver);
-  // table.addEventListener("dragenter", dragenter);
-  // table.addEventListener("dragleave", dragleave);
-  // table.addEventListener("dragDrop", dragDrop);
+  table.setAttribute("data-id", `${dataSetTableId++}`);
   container.appendChild(table);
 
   const header = document.createElement("div");
@@ -30,47 +38,63 @@ function createTable(tableName) {
   const addBtn = document.createElement("button");
   addBtn.textContent = "Добавить";
   addBtn.className = "table__add-task-btn";
-  addBtn.addEventListener("click", createTask);
   inputWr.appendChild(addBtn);
 
   const list = document.createElement("ul");
   list.className = "table__list";
-  // list.addEventListener("dragover", dragOver);
+  list.setAttribute("data-ul-id", `${dataSetListId++}`);
   table.appendChild(list);
+
+  addBtn.addEventListener("click", () => {
+    createTask(input.value, list.dataset.ulId)
+    patchTask(table.dataset.id, input.value)
+    input.value = "";
+  });
 
   const deleteTableBtn = document.createElement("button");
   deleteTableBtn.textContent = "X";
   deleteTableBtn.className = "table__delete-table-btn";
-  deleteTableBtn.addEventListener("click", deleteTable);
+  deleteTableBtn.addEventListener("click", deleteTable)
   header.appendChild(deleteTableBtn);
-
-  function createTask() {
-    const task = document.createElement("li");
-    task.className = "table__task";
-    task.setAttribute("draggable", "true");
-    task.addEventListener("dragstart", dragStart);
-    task.addEventListener("dragend", dragEnd);
-    task.addEventListener("dragover", dragOver);
-    task.textContent = input.value;
-    list.appendChild(task);
-
-
-    const deleteTaskBtn = document.createElement("button");
-    deleteTaskBtn.textContent = "X";
-    deleteTaskBtn.className = "table__task-delete-btn";
-    deleteTaskBtn.addEventListener("click", deleteTask);
-    task.appendChild(deleteTaskBtn);
-
-    input.value = "";
-  }
 }
 
-function deleteTable(event) {
-  event.target.parentNode.parentElement.remove();
+const createTask = (getName, id) => {
+  const task = document.createElement("li");
+  task.className = "table__task";
+  task.setAttribute("data-id", `${id}`);
+  const currentUl = document.querySelector(`[data-ul-id="${task.dataset.id}"]`)
+  task.setAttribute("draggable", "true");
+  task.setAttribute("data-delet-id", `${dataDelitId++}`);
+  task.addEventListener("dragstart", dragStart);
+  task.addEventListener("dragend", dragEnd);
+  task.addEventListener("dragover", dragOver);
+  task.textContent = getName;
+  currentUl.appendChild(task);
+
+  const deleteTaskBtn = document.createElement("button");
+  deleteTaskBtn.textContent = "X";
+  deleteTaskBtn.className = "table__task-delete-btn";
+  task.appendChild(deleteTaskBtn);
+  deleteTaskBtn.addEventListener("click", deleteTask)
 }
 
-function deleteTask(event) {
-  event.target.parentNode.remove();
+const deleteTable = (event) => {
+  event.target.parentNode.parentElement.parentNode.childNodes.forEach((link, index) => {
+    link.addEventListener('click', () => {
+      console.log(index);
+      deleteGetTable(index);
+    })
+  });
+  // deleteGetTable(event.target.parentNode.parentElement.dataset.id);
+}
+
+const deleteTask = (event) => {
+  let datasetUlUd = Number(event.target.parentNode.parentElement.dataset.ulId)
+  event.target.parentNode.parentElement.childNodes.forEach((link, index) => {
+    link.addEventListener('click', () => {
+      deleteGetTableTask(index, datasetUlUd)
+    })
+  });
 }
 
 const showCreateTableMenu = () => {
@@ -94,7 +118,7 @@ const showCreateTableMenu = () => {
   createTableContainer.appendChild(createTableCloseBtn);
 
   const createTableHeadline = document.createElement("h2");
-  createTableHeadline.textContent = "What is the name of the table?";
+  createTableHeadline.textContent = "Введите название таблицы";
   createTableContainer.appendChild(createTableHeadline);
 
   const tableNameInput = document.createElement("input");
@@ -103,15 +127,19 @@ const showCreateTableMenu = () => {
 
   const createTableBtn = document.createElement("button");
   createTableBtn.classList.add("create-table-pop-up__create-btn");
-  createTableBtn.textContent = "Create";
-  createTableContainer.appendChild(createTableBtn);
-
+  createTableBtn.textContent = "Создать";
+  //createTableBtn.addEventListener("click", postTable);
   createTableBtn.addEventListener("click", () => {
+
+    postTable(dataSetTableId++)
     createTable(tableNameInput.value);
     substrate.remove();
-  });
+    getTable()
+  })
+  createTableContainer.appendChild(createTableBtn);
+
+
 };
 
-// const btn = document.querySelector("#createBtn");
 const btn = document.querySelector(".addTableBtn");
 btn.addEventListener("click", showCreateTableMenu);
