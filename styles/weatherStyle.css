@@ -4,9 +4,11 @@
   display: none;
   text-align: center;
   font-size: 15px;
+ 
 }
 .vidget-bar__content-wheather_active {
   display: block;
+ 
 }
 .vidget-bar__info-wheather {
   padding-top: 10%;

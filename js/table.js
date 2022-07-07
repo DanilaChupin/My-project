@@ -3,7 +3,6 @@ let dataSetListId = 1;
 let dataDelitId = 1;
 
 const createTable = (tableName, maxId) => {
-  console.log("mid", maxId);
   const container = document.querySelector(".container-main-wr");
 
   const table = document.createElement("div");
@@ -18,7 +17,6 @@ const createTable = (tableName, maxId) => {
 
   const headline = document.createElement("h2");
   headline.className = "table__headline";
-  headline.textContent = tableName;
   header.appendChild(headline);
 
   const inputWr = document.createElement("div");
@@ -36,12 +34,12 @@ const createTable = (tableName, maxId) => {
 
   const list = document.createElement("ul");
   list.className = "table__list";
-  list.setAttribute("data-ul-id", `${dataSetListId++}`);
+  list.setAttribute("data-ul-id", `${maxId}`);
   table.appendChild(list);
 
   addBtn.addEventListener("click", () => {
     createTask(input.value, list.dataset.ulId);
-    patchTask(table.dataset.id, input.value);
+    patchTask(table.dataset.id, input.value,);
     input.value = "";
   });
 
@@ -75,20 +73,6 @@ const createTask = (getName, id) => {
   deleteTaskBtn.addEventListener("click", deleteTask);
 };
 
-const deleteTable = (event, maxId) => {
-  const table = event.target.parentNode.parentElement.dataset.id;
-  console.log("123", table);
-  // deleteGetTable(maxId);
-  // event.target.parentNode.parentElement.parentNode.childNodes.forEach(
-  //   (link, index) => {
-  //     link.addEventListener("click", () => {
-  //       deleteGetTable(index);
-  //     });
-  //   }
-  // );
-  // deleteGetTable(event.target.parentNode.parentElement.dataset.id);
-};
-
 const deleteTask = (event) => {
   let datasetUlUd = Number(event.target.parentNode.parentElement.dataset.ulId);
   event.target.parentNode.parentElement.childNodes.forEach((link, index) => {
@@ -99,7 +83,6 @@ const deleteTask = (event) => {
 };
 
 const showCreateTableMenu = (maxId) => {
-  console.log(maxId);
   const container = document.querySelector(".container-main");
 
   const substrate = document.createElement("div");

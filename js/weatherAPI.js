@@ -27,4 +27,5 @@ const renderWeatherApp = async () => {
 
     currentTemp.innerHTML = Math.round(data.main.temp - 273);
     weather.innerHTML = data.weather[0].description;
+
 }

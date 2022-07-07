@@ -1,20 +1,28 @@
 const dragStart = (event) => {
     const tables = document.querySelectorAll(".table__list")
-    //  event.target.parentElement.childNodes.forEach((link, index) => {
-    //      link.addEventListener('mousemove', () => {
-    //      deleteGetTableTask(index, Number(event.target.parentNode.dataset.ulId));
-     
-    //      })
-    //  });
     tables.forEach(table => {
         table.style.minHeight = '50px'
     })
     event.target.classList.add("selected");
+    const tableId1 = event.target.parentNode.dataset.ulId;
+    event.target.parentNode.childNodes.forEach((link, index) => {
+        link.addEventListener("dragend", () => {
+
+            deleteGetTableTask(index, tableId1)
+            console.log(index, tableId1);
+        });
+    });
 
 };
 
 const dragEnd = (event) => {
     event.target.classList.remove(`selected`);
+
+    const tableId2 = event.target.parentNode.dataset.ulId;
+    const taskName = event.target.textContent[0]
+
+    saveElement(tableId2, taskName)
+
 };
 
 const getNextElement = (cursorPosition, currentElement) => {
@@ -28,7 +36,6 @@ const getNextElement = (cursorPosition, currentElement) => {
 };
 
 const dragOver = (event) => {
-
     event.preventDefault();
 
     const activeElement = document.querySelector(".selected");
