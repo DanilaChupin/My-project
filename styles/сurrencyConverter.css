@@ -1,0 +1,86 @@
+.vibget-bar__convert-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  display: none;
+}
+.vibget-bar__convert-wrapper__active {
+  display: block;
+}
+.vidget-bar__content-rate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  text-align: center;
+  font-size: 20px;
+}
+.content-rate__title {
+    text-align: center;
+}
+.vidget-bar__content-rate_currency {
+}
+.rate__title {
+}
+.rate__title_content {
+  border-top: 1px solid black;
+}
+
+/*описание блока конвертера*/
+
+.vidget-bar__conver {
+  /*обёртка*/
+  margin-top: 20px;
+}
+.conver-title {
+  /*второй заголовок*/
+
+  text-align: center;
+}
+.conver-add__sum {
+  /*обёртка для инпута ввода суммы и select*/
+  margin-top: 10px;
+}
+.input-addid {
+  /*input*/
+  height: 30px;
+}
+.select_addid {
+  /*выбор валюты*/
+  height: 30px;
+}
+.option_select {
+  /*пункты select*/
+}
+.conver_value {
+  /*обёртка для ответа */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.select_addid__value {
+  /*второй select по выбору валюты */
+  height: 30px;
+}
+.sum_value {
+  /*ответ*/
+  font-size: 30px;
+}
+.convert-calculate__btn {
+  /*обёртка для кнопки расчёта*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.calculate_btn {
+  /*кнопка расчёта*/
+ 
+}

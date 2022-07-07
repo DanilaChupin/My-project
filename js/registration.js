@@ -1,4 +1,4 @@
-const forms = document.forms.form1;
+/*const forms = document.forms.form1;
 
 
 
@@ -31,3 +31,4 @@ const makeValidation = () => {
 
 registrationBtn.addEventListener('click', (e) => makeValidation(e))
 
+*/

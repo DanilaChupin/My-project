@@ -1,94 +1,139 @@
-/*const getData = () => {
-    fetch('http://localhost:3000/element').then(
-        (res) => {
-            return res.json()
-        }
-    ).then(
-        data => {
-            for (const key in data) {
-                const container = document.querySelector('.container-main')
-                const currentTitle = data[key].table
-                // console.log(currentTitle);
-                const newElem = document.createElement('div');
-                newElem.setAttribute('draggable', 'true')
-                newElem.className = 'wrapper'
-                newElem.innerHTML = currentTitle
-                container.append(newElem)
+const postTable = async (tableId) => {
+  const inputTableName = document.querySelector(
+    ".create-table-pop-up__input"
+  ).value;
 
-                const btnAdd = document.querySelectorAll('.addBtn');
-                btnAdd.forEach(button => {
-                    button.addEventListener('click', newElement)
-                });
-
-                const list = document.querySelectorAll('ul');
-                list.forEach(buttom => {
-                    buttom.addEventListener('click', deletElement)
-                });
-
-                const deletTable = document.querySelectorAll('.deletBtn');
-                deletTable.forEach(button => {
-                    button.addEventListener('click', deletNewTable)
-                })
-            }
-        }
-    ).catch(
-        err => console.log('Error', err)
-    )
-
-}
-
-//document.querySelector('#get').addEventListener('click', getData)
-getData()
-
-const postData = (event) => {
-    const getElement = document.querySelector('.wrapper').innerHTML
-    event.preventDefault();
-
-    fetch('http://localhost:3000/element', {
-        method: 'POST',
-        body: JSON.stringify({
-            "table": getElement,
-        }),
-        headers: {
-            "Content-type": "application/json; charset=utf-8"
-        }
-    }).then(
-        res => {
-            return res.json();
-        }
-    ).then(
-        data => {
-            console.log('POST', data);
-        }
-    )
-
-}
-
-// document.querySelector('#post').addEventListener('click', postData)
-btn.addEventListener('click', postData)
-
-
-
-const deleteData = () => {
-    fetch('http://localhost:3000/element/2', {
-        method: 'DELETE'
-    }).then(
-        res => {
-            return res.json();
-        }
-    ).then(
-        data => {
-            console.log('DELETE:', data);
-        }
-    )
+  await fetch("http://localhost:3000/element", {
+    method: "POST",
+    body: JSON.stringify({
+      table_name: inputTableName,
+      table_id: tableId,
+      tasks: [],
+    }),
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log("POST:", data);
+    });
 };
 
+const getTable = () => {
+  fetch("http://localhost:3000/element")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      const arr = [];
+      data.map((element) => arr.push(element.id));
+      let maxId = arr.length !== 0 ? Math.max(...arr) : 0;
 
- 
-    
-deletTable.forEach(button => {
-    button.addEventListener('click', deleteData)
-})
- 
+      data.forEach((table) => {
+        createTable(table.table_name, table.id);
+      });
+    })
+    .catch((err) => console.log("Error:", err));
+};
 
-  document.querySelector('#delete').addEventListener('click', deleteData)*/
+const getMaxId = () => {
+  fetch("http://localhost:3000/element")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      const arr = [];
+      data.map((element) => arr.push(element.id));
+      let maxId = arr.length !== 0 ? Math.max(...arr) : 0;
+      return showCreateTableMenu(maxId);
+    })
+    .catch((err) => console.log("Error:", err));
+};
+
+getTable();
+
+const deleteGetTable = async (id) => {
+  fetch(`http://localhost:3000/element/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log("DELETE:", data);
+    });
+};
+
+const patchTask = async (tableId, taskName) => {
+  const tableX = await fetch(`http://localhost:3000/element/${tableId}`).then(
+    (res) => {
+      return res.json();
+    }
+  );
+  fetch(`http://localhost:3000/element/${tableId}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      tasks: [
+        ...tableX.tasks,
+        {
+          task_name: taskName,
+          current_id: tableId,
+        },
+      ],
+    }),
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log("PATCH:", data);
+    });
+};
+
+const getTask = () => {
+  fetch(`http://localhost:3000/element`)
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      data.forEach((task) => {
+        task.tasks.forEach((taskName) => {
+          createTask(taskName.task_name, taskName.current_id);
+        });
+      });
+    })
+    .catch((err) => console.log("Error:", err));
+};
+
+getTask();
+
+const deleteGetTableTask = async (id, datasetUlUd) => {
+  const tableX = await fetch(
+    `http://localhost:3000/element/${datasetUlUd}`
+  ).then((res) => {
+    return res.json();
+  });
+  fetch(`http://localhost:3000/element/${datasetUlUd}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      tasks: tableX.tasks
+        .slice(0, id)
+        .concat(tableX.tasks.slice(id + 1, tableX.tasks.length)),
+    }),
+    headers: {
+      "Content-type": "application/json; charset=utf-8",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log("PATCH:", data);
+    });
+};

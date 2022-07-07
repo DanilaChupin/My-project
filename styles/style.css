@@ -1,103 +1,73 @@
-body{
-  background: url(/media/alpine-ga11a67e78_1920.jpg);
-  background-size: cover;
-  
-}
-main{
-  height: calc(100vh - 80px);
-}
 * {
-  box-sizing: border-box;
   margin: 0;
-}
-.colum{
-display: flex;
-
-}
-.container-main{
-display: flex;
-flex-direction: row;
-bottom: 0;
-overflow-x: auto;
-height: 100%;
-position: relative;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-image: url(/media/default.jpg);
+  background-size: 100vw 100vh;
 
-/*ul li {
+}
 
-  border: solid 1px black;
-  margin-top: 5px;
+.container-main {
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  overflow-x: auto;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+.container-main-wr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+
+
+
+.addTableBtn {
+  height: 40vh;
+  min-width: 15vw;
+  background-color: rgba(189, 195, 199, .4);
+  border: 2px dashed rgba(108, 122, 137, 1);
+  border-radius: 10px;
   cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
   font-size: 18px;
-  transition: 0.2s;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-ul li:nth-child(odd) {
-  background: #f9f9f9;
-}
-
-ul li:hover {
-  background: #ddd;
-}
-li{
-  margin: 10px 0;
-}
-ul li.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-  
-}
-ul li.checked::before {
-  content: '';
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
- 
-}
-*/
-.close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 12px 16px 12px 16px;
-}
-
-.close:hover {
-  background-color: #e74c3c;
   color: white;
 }
 
-/*.header {
-  position: relative;
-  background-color: rgba(95, 95, 95, 0.7);
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
+.addTableBtn:hover {
+  background-color: rgba(75, 135, 199, .4);
+  border: 2px dashed rgb(108, 135, 199, 1);
 }
 
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-*/
-.container-button{
+.container-button {
   position: absolute;
   bottom: 0;
+  width: 16vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
+#post,
+#delete,
+#get {
+  height: 5vh;
+  width: 5vw;
+  background-color: rgba(75, 135, 199, .4);
+  border: 2px solid rgb(108, 135, 199, 1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#post:hover,
+#delete:hover,
+#get:hover {
+  background-color: rgba(75, 135, 199, .8);
+}

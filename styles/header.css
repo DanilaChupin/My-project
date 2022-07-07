@@ -6,8 +6,11 @@
   padding: 10px 20px;
   background-color: grey;
 }
+
 .header__logo-link {
+  text-decoration: none;
 }
+
 .header__logo {
   display: flex;
   flex-direction: row;
@@ -17,45 +20,57 @@
   border-radius: 10px;
   overflow: hidden;
 }
+
 .header__logo-block {
   background-color: white;
   height: 100%;
 }
+
 .header__logo-text {
   font-size: 24px;
   font-weight: bold;
 }
+
 .header__logo-text_white {
   color: white;
 }
+
 .header__logo-text_black {
   color: black;
 }
+
 .header__menu {
   width: 60%;
 }
+
 .header__menu-list {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
+
 .header__menu-item {
   list-style-type: none;
 }
+
 .header__menu-link {
   text-decoration: none;
   color: black;
 }
+
 .header__searchbar {
-  width: 20%;
+  height: 5vh;
+  width: 40%;
   padding: 5px 10px;
   border-radius: 10px;
   border: none;
 }
+
 .header__profile {
   height: 50px;
   width: 50px;
-  background-color: red;
+  background-image: url("https://oir.mobi/uploads/posts/2021-04/1619723710_20-oir_mobi-p-kotik-v-shapochke-zhivotnie-krasivo-foto-25.jpg");
+  background-size: 100% 100%;
   border-radius: 50%;
 }

@@ -1,0 +1,69 @@
+.vidget {
+    position: absolute;
+    right: 2vh;
+    bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.vidget-btn {
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background-color: rgba(172, 70, 70, 0.8);
+    color: white;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.vidget-bar {
+    /*height: 30vh;
+    width: 20vw;*/
+    margin-bottom: 2vh;
+    border-radius: 10px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    width: 30vw;
+}
+
+.vidget-bar_active {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.vidget-bar__header {
+    text-align: center;
+    height: 20%;
+    background-color: rgba(172, 70, 70, 0.8);
+    padding: 5%;
+}
+.vidget-bar__main{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding-bottom: 50%; 
+    display: flex; 
+    justify-content: center;
+}
+
+.vidget-bar__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+.vidget-bar__list-item {
+    cursor: pointer;
+    color: white;
+}
+
+.vidget-bar__list-item:hover {
+    text-decoration: underline;
+}

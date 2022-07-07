@@ -1,8 +1,3 @@
 {
-  "element": [
-    {
-      "table": "<div class=\"header\"><h1 class=\"h1\">Новая таблица</h1><input class=\"toDoEl\"><span class=\"addBtn\">Добавить</span><span class=\"deletBtn\">X</span></div><ul></ul>",
-      "id": 1
-    }
-  ]
+  "element": []
 }
